@@ -9,11 +9,11 @@ probability_distribution = {
   3: 1/8,
 }
 
-def generate_values(n):
+def generate_values(n, pmf):
   values = []
   for _ in range(n):
     number_of_heads = random.randint(0, 3)
-    probability = probability_distribution[number_of_heads]
+    probability = pmf[number_of_heads]
     values.append(probability)
   
   plt.title('Ejercicio 2')
@@ -23,5 +23,5 @@ def generate_values(n):
   plt.show()
 
 
-generate_values(100)
+generate_values(100, probability_distribution)
 
