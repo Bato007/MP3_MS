@@ -10,17 +10,22 @@ probability_distribution = {
 }
 
 def generate_values(n, pmf):
+  # Se genera un arreglo vacio para meter los valores generados
   values = []
   for _ in range(n):
+    # Se genera un numero aleatorio entre 0 y 1
     u_random = random.uniform(0, 1)
     print('===============================================')
+    # Se revisa a que probabilidad corresponde
     for i in pmf:
       print('VALUE: ', pmf[i], 'RANDOM: ', u_random)
       if (u_random <= pmf[i]):
+        # Se agrega el valor correpondiente al arreglo de valores
         values.append(pmf[i])
         break
   print(values)
   
+  # Grafica
   plt.title('Ejercicio 2')
   plt.xlabel('Probabilidad')
   plt.ylabel('Total de eventos')
