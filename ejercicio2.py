@@ -4,17 +4,22 @@ import random
 # VARIABLE ALEATORIA: NUMERO DE CARAS AL TIRAR 3 MONEDAS DE UNA MONEDA JUSTA
 probability_distribution = {
   0: 1/8,
-  1: 3/8,
-  2: 3/8,
-  3: 1/8,
+  1: 4/8,
+  2: 7/8,
+  3: 1,
 }
 
 def generate_values(n, pmf):
   values = []
   for _ in range(n):
-    number_of_heads = random.randint(0, 3)
-    probability = pmf[number_of_heads]
-    values.append(probability)
+    u_random = random.uniform(0, 1)
+    print('===============================================')
+    for i in pmf:
+      print('VALUE: ', pmf[i], 'RANDOM: ', u_random)
+      if (u_random <= pmf[i]):
+        values.append(pmf[i])
+        break
+  print(values)
   
   plt.title('Ejercicio 2')
   plt.xlabel('Probabilidad')
